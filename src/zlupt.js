@@ -3,7 +3,7 @@ const argv = require('yargs').argv;
 
 const feed = require('./feed');
 const logger = require('./logger');
-const webt = require('./webtorrent');
+// const webt = require('./webtorrent');
 
 function cli() {
     function start(key) {
@@ -18,7 +18,7 @@ function cli() {
             console.log(logger.text(d));
         });
 
-        zz.observe('/home/gustavo/workspace/zlupt/feed_test', p => {
+        zz.observe(argv.path, p => {
             console.log(logger.success(p));
             feed.send(JSON.stringify(p));
         });
