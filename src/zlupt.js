@@ -15,12 +15,14 @@ function cli() {
             })
         });
         feed.listen(d => {
-            console.log(logger.text(d));
+            console.log(' [FEED] ' + logger.text(JSON.stringify(d)));
         });
 
         zz.observe(argv.path, p => {
-            console.log(logger.success(p));
-            feed.send(JSON.stringify(p));
+            console.log(' [ ZZ ] ' + logger.success(p));
+            feed.send(JSON.stringify(p), () => {
+                console.log('[FEED] Sended.');
+            });
         });
     }
 
