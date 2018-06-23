@@ -1,0 +1,26 @@
+{
+  "name": "zlupt",
+  "version": "1.0.0",
+  "description": "",
+  "main": "src/zlupt.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "install-dep-linux": "sudo apt install xvfb -y"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gustavofsantos/zlupt.git"
+  },
+  "author": "Gustavo Santos <gfdsantos@inf.ufpel.edu.br>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/gustavofsantos/zlupt/issues"
+  },
+  "homepage": "https://github.com/gustavofsantos/zlupt#readme",
+  "dependencies": {
+    "hypercore": "^6.16.0",
+    "hyperdiscovery": "^7.1.1",
+    "webtorrent-hybrid": "^1.0.6",
+    "zilez": "^1.0.3"
+  }
+}
