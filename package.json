@@ -23,6 +23,7 @@
     "hyperdiscovery": "^7.1.1",
     "random-access-memory": "^3.0.0",
     "webtorrent-hybrid": "^1.0.6",
+    "yargs": "^11.0.0",
     "zilez": "^1.0.4"
   }
 }
