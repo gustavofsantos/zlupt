@@ -4,11 +4,19 @@ const ppf = require('./pretty-path-formatter');
 
 let wtorrent, db;
 
+/**
+ * initialize variables if not initialized yet
+ */
 function initIfNotInitializedYet() {
     if (!wtorrent) wtorrent = new WebTorrent();
     if (!db) db = new Map();
 }
 
+/**
+ * Seed a file
+ * @param {string} path
+ * @param {function} handler
+ */
 function seedFile(path, handler) {
     initIfNotInitializedYet();
     if (!db.get(path)) {
@@ -19,6 +27,11 @@ function seedFile(path, handler) {
     }
 }
 
+/**
+ * Download files from a magnetURI
+ * @param {string} magnetURI
+ * @param {function} handler
+ */
 function downloadFile(magnetURI, handler) {
     initIfNotInitializedYet();
     wtorrent.add(magnetURI, torrent => {
@@ -37,6 +50,11 @@ function downloadFile(magnetURI, handler) {
     })
 }
 
+/**
+ * Destroy the webtorrent
+ * @param done
+ * @param error
+ */
 function terminate(done, error) {
     wtorrent.destroy(e => {
         if (e) error(e);
@@ -49,11 +67,4 @@ module.exports = {
     seedFile,
     downloadFile,
     terminate
-}
-
-seedFile('/home/gustavo/workspace/zlupt/package-lock.json', torrent => {
-    console.log('uri: ', torrent.magnetURI);
-    downloadFile(torrent.magnetURI, () => {
-        console.log('arq baixado.');
-    })
-})
+};
